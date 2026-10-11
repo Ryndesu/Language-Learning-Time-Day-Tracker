@@ -2,14 +2,14 @@ from datetime import datetime # Import datetime module for date calculations
 import math # Import math module
 
 # INPUTS -------------------------------------------
-print('Inputs ------------------------')
+print("Inputs ------------------------")
 # Get total time in hrs, mins, secs
-total_time_hrs: int = int(input('Total Time Hrs: '))
-total_time_mins: int = int(input('Total Time Mins: '))
-total_time_secs: int = int(input('Total Time Secs: '))
+total_time_hrs: int = int(input("Total Time Hrs: "))
+total_time_mins: int = int(input("Total Time Mins: "))
+total_time_secs: int = int(input("Total Time Secs: "))
 # Get target hours
-target_time: int = int(input('Target Goal (Hrs): '))
-print('-------------------------------\n')
+target_time: int = int(input("Target Goal (Hrs): "))
+print("-------------------------------\n")
 
 # CALCULATIONS -------------------------------------
 # Get days remaining until end of year
@@ -27,9 +27,9 @@ time_per_day_mins: int = math.ceil(time_per_day_mins * 60) # Convert -> mins & r
 percent_to_target: float = (total_time / target_time) * 100
 
 # OUTPUTS ------------------------------------------
-print('Outputs -----------------------')
-print(f'Percent to Goal: {percent_to_target:.2f}%') # :2f returns with 2 decimal places
-print(f'Time Per Day: {time_per_day_hrs}h {time_per_day_mins}m')
-print('-------------------------------\n')
+print("Outputs -----------------------")
+print(f"Percent to Goal: {percent_to_target:.2f}%") # :2f returns with 2 decimal places
+print(f"Time Per Day: {time_per_day_hrs}h {time_per_day_mins}m")
+print("-------------------------------\n")
 # Pause until keypress
 input("Enter to exit...")
