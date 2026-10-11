@@ -28,7 +28,7 @@ percent_to_target: float = (total_time / target_time) * 100
 
 # OUTPUTS ------------------------------------------
 print("Outputs -----------------------")
-print(f"Percent to Goal: {percent_to_target:.2f}%") # :2f returns with 2 decimal places
+print(f"Percent to Goal: {percent_to_target:.1f}%") # :2f returns with 2 decimal places
 print(f"Time Per Day: {time_per_day_hrs}h {time_per_day_mins}m")
 print("-------------------------------\n")
 # Pause until keypress
