@@ -28,6 +28,7 @@ percent_to_target: float = (total_time / target_time) * 100
 
 # OUTPUTS ------------------------------------------
 print(f"{"Outputs ":-<30}") # Outputs & spacer
+print(f"Days left: {days_left}")
 print(f"Percent to Goal: {percent_to_target:.1f}%") # Display percent rounded to 1 decimal
 print(f"Time Per Day: {time_per_day_hrs}h {time_per_day_mins}m") # Display time/day
 print(f"{"":-<30}\n") # Spacer & line break
