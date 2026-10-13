@@ -1,15 +1,17 @@
-from datetime import date # Import datetime module for date calculations
+from datetime import date # Import date module from datetime for date calculations
 import math # Import math module
 
+version: str = "1.0.2"
+
 # INPUTS -------------------------------------------
-print(f"{"Inputs ":-<30}") # Inputs & spacer
+print(f"{" [Inputs] ":-^40}") # Inputs & spacer
 # Get total time in hrs, mins, secs
 total_time_hrs: int = int(input("Total Time Hrs: "))
 total_time_mins: int = int(input("Total Time Mins: "))
 total_time_secs: int = int(input("Total Time Secs: "))
 # Get target hours
 target_time: int = int(input("Target Goal (Hrs): "))
-print(f"{"":-<30}\n") # Spacer & line break
+print(f"{"":-^40}\n") # Spacer & line break
 
 # CALCULATIONS -------------------------------------
 # Get days remaining until end of year
@@ -27,11 +29,27 @@ time_per_day_mins: int = math.ceil(time_per_day_mins * 60) # Convert -> mins & r
 percent_to_target: float = (total_time / target_time) * 100
 
 # OUTPUTS ------------------------------------------
-print(f"{"Outputs ":-<30}") # Outputs & spacer
-print(f"{date.today().strftime("%B %d, %Y")} --> {date(date.today().year, 12, 31).strftime("%B %d, %Y")}") # Today's date --> 12/31
+print(f"{" [Outputs] ":-^40}") # Outputs & spacer
+print(f"{date.today().strftime("%B %d, %Y")} -> {end_of_year.strftime("%B %d, %Y")}") # Today's date -> 12/31
 print(f"Days left: {days_left}") # Display days left until 12/31
 print(f"Percent to Goal: {percent_to_target:.1f}%") # Display percent to goal rounded to 1 decimal
 print(f"Time Per Day: {time_per_day_hrs}h {time_per_day_mins}m") # Display time per day
-print(f"{"":-<30}\n") # Spacer & line break
+print(f"{"":-^40}\n") # Spacer & line break
+
+# DEBUG --------------------------------------------
+def debug():
+    print(f"{f" [DEBUG - VERSION: {version}] ":-^40}") # REDO THIS *****
+    print(f"{end_of_year = }")
+    print(f"{days_left = }")
+    print(f"{total_time = }")
+    print(f"{time_per_day = }")
+    print(f"{time_per_day_mins = }")
+    print(f"{time_per_day_hrs = }")
+    print(f"{percent_to_target = }")
+    print(f"{"":-^40}\n")
+    return
+
+debug() # Call debug
+
 # Pause until keypress
 input("Enter to exit...")
