@@ -4,7 +4,7 @@ import math # Import math module
 version: str = "1.0.2"
 
 # INPUTS -------------------------------------------
-print(f"{" [Inputs] ":-^40}") # Inputs & spacer
+print(f"{" [Input] ":-^40}") # Inputs & spacer
 # Get total time in hrs, mins, secs
 total_time_hrs: int = int(input("Total Time Hrs: "))
 total_time_mins: int = int(input("Total Time Mins: "))
@@ -29,7 +29,7 @@ time_per_day_mins: int = math.ceil(time_per_day_mins * 60) # Convert -> mins & r
 percent_to_target: float = (total_time / target_time) * 100
 
 # OUTPUTS ------------------------------------------
-print(f"{" [Outputs] ":-^40}") # Outputs & spacer
+print(f"{" [Output] ":-^40}") # Outputs & spacer
 print(f"{date.today().strftime("%B %d, %Y")} -> {end_of_year.strftime("%B %d, %Y")}") # Today's date -> 12/31
 print(f"Days left: {days_left}") # Display days left until 12/31
 print(f"Percent to Goal: {percent_to_target:.1f}%") # Display percent to goal rounded to 1 decimal
@@ -37,7 +37,7 @@ print(f"Time Per Day: {time_per_day_hrs}h {time_per_day_mins}m") # Display time 
 print(f"{"":-^40}\n") # Spacer & line break
 
 # DEBUG --------------------------------------------
-def debug():
+def debug() -> None:
     print(f"{f" [DEBUG - VERSION: {version}] ":-^40}") # REDO THIS *****
     print(f"{end_of_year = }")
     print(f"{days_left = }")
@@ -53,3 +53,4 @@ debug() # Call debug
 
 # Pause until keypress
 input("Enter to exit...")
+ 
