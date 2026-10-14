@@ -1,17 +1,23 @@
-from datetime import date # Import date module from datetime for date calculations
-import math # Import math module
+from datetime import date
+import math
 
-version: str = "1.0.2"
+version: str = "1.1.3"
+
+def get_integer_input(user_input: str) -> int:
+    while True:
+        try:
+            return int(input(user_input))
+        except ValueError:
+            print("Please input an integer")
 
 # INPUTS -------------------------------------------
-print(f"{" [Input] ":-^40}") # Inputs & spacer
-# Get total time in hrs, mins, secs
-total_time_hrs: int = int(input("Total Time Hrs: "))
-total_time_mins: int = int(input("Total Time Mins: "))
-total_time_secs: int = int(input("Total Time Secs: "))
-# Get target hours
-target_time: int = int(input("Target Goal (Hrs): "))
-print(f"{"":-^40}\n") # Spacer & line break
+print(f"{' [INPUT] ':-^40}")
+# Get total time in hrs, mins, secs & target time
+total_time_hrs = get_integer_input("Total Time Hrs: ")
+total_time_mins = get_integer_input("Total Time Mins: ")
+total_time_secs = get_integer_input("Total Time Sec: ")
+target_time = get_integer_input("Target Goal (Hrs): ")
+print(f"{'':-^40}\n") # Print spacer
 
 # CALCULATIONS -------------------------------------
 # Get days remaining until end of year
@@ -29,28 +35,31 @@ time_per_day_mins: int = math.ceil(time_per_day_mins * 60) # Convert -> mins & r
 percent_to_target: float = (total_time / target_time) * 100
 
 # OUTPUTS ------------------------------------------
-print(f"{" [Output] ":-^40}") # Outputs & spacer
-print(f"{date.today().strftime("%B %d, %Y")} -> {end_of_year.strftime("%B %d, %Y")}") # Today's date -> 12/31
-print(f"Days left: {days_left}") # Display days left until 12/31
+print(f"{' [OUTPUT] ':-^40}")
+print(f"{date.today().strftime('%B %d, %Y')} -> {end_of_year.strftime('%B %d, %Y')}") # Today's date -> 12/31
+print(f"Days left: {days_left}")
 print(f"Percent to Goal: {percent_to_target:.1f}%") # Display percent to goal rounded to 1 decimal
-print(f"Time Per Day: {time_per_day_hrs}h {time_per_day_mins}m") # Display time per day
-print(f"{"":-^40}\n") # Spacer & line break
+print(f"Time Per Day to Goal: {time_per_day_hrs}h {time_per_day_mins}m")
+print(f"{'':-^40}\n") # Print spacer
 
 # DEBUG --------------------------------------------
-def debug() -> None:
-    print(f"{f" [DEBUG - VERSION: {version}] ":-^40}") # REDO THIS *****
-    print(f"{end_of_year = }")
-    print(f"{days_left = }")
-    print(f"{total_time = }")
-    print(f"{time_per_day = }")
-    print(f"{time_per_day_mins = }")
-    print(f"{time_per_day_hrs = }")
-    print(f"{percent_to_target = }")
-    print(f"{"":-^40}\n")
-    return
+print(f"{f' [DEBUG | VERSION: {version}] ':-^40}") # REDO THIS *****
 
-debug() # Call debug
+def debug(**kwargs) -> None:
+    for var_name, var_value in kwargs.items():
+        print(f"{var_name} = {var_value}")
 
-# Pause until keypress
-input("Enter to exit...")
+debug(
+    days_left=days_left,
+    total_time=total_time,
+    time_per_day=time_per_day,
+    time_per_day_hrs=time_per_day_hrs,
+    time_per_day_mins=time_per_day_mins,
+    percent_to_target=percent_to_target
+)
+
+print(f"{'':-^40}\n") # Print spacer
+
+# EXIT ---------------------------------------------
+input("Enter to exit...") # Pause until keypress
  
