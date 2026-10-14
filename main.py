@@ -1,7 +1,7 @@
 from datetime import date
 import math
 
-version: str = "1.1.3"
+version: str = "1.1.4"
 
 def get_integer_input(user_input: str) -> int:
     while True:
@@ -21,8 +21,9 @@ print(f"{'':-^40}\n") # Print spacer
 
 # CALCULATIONS -------------------------------------
 # Get days remaining until end of year
-end_of_year = date(date.today().year, 12, 31) # Get Dec 31 date => yyyy/mm/dd
-days_left = (end_of_year - date.today()).days + 1 # Subtract Dec 31 date from today's date => output as days, add 1 for correction
+current_date = date.today()
+end_of_year = date(current_date.year, 12, 31) # Get Dec 31 date => yyyy/mm/dd
+days_left = (end_of_year - current_date).days + 1 # Subtract Dec 31 date from today's date & output as days, add 1 for correction
 # Convert input time -> hrs
 total_time: float = total_time_hrs + (total_time_mins / 60) + (total_time_secs / 3600)
 # Calculate time per day to reach target goal
