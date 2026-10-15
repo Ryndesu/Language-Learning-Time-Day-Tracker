@@ -1,7 +1,7 @@
 from datetime import date
 import math
 
-version: str = "1.1.4"
+version: str = "1.1.5"
 
 def get_integer_input(user_input: str) -> int:
     while True:
@@ -44,7 +44,7 @@ print(f"Time Per Day to Goal: {time_per_day_hrs}h {time_per_day_mins}m")
 print(f"{'':-^40}\n") # Print spacer
 
 # DEBUG --------------------------------------------
-print(f"{f' [DEBUG | VERSION: {version}] ':-^40}") # REDO THIS *****
+print(f"{f' [DEBUG | VERSION: {version}] ':-^40}")
 
 def debug(**kwargs) -> None:
     for var_name, var_value in kwargs.items():
