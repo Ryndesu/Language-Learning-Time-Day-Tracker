@@ -8,7 +8,7 @@ def get_integer_input(user_input: str) -> int:
         try:
             return int(input(user_input))
         except ValueError:
-            print("Please input an integer")
+            print("Please input an integer.")
 
 # INPUTS -------------------------------------------
 print(f"{' [INPUT] ':-^40}")
