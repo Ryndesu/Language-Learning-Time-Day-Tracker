@@ -63,4 +63,3 @@ print(f"{'':-^40}\n") # Print spacer
 
 # EXIT ---------------------------------------------
 input("Enter to exit...") # Pause until keypress
- 
