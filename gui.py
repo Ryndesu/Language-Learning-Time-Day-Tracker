@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from calculations import get_time_per_day, get_percent_to_target
 
-version_number = "1.0.0"
+version_number = "1.0.1"
 value_error = "Error: Input a number"
 
 # SETUP --------------------------------------------
@@ -55,7 +55,7 @@ def get_total_time():
     total_time = total_time_hrs + (total_time_mins / 60) + (total_time_secs / 3600)
     return total_time
 
-def update_result_label():
+def update_total_time_result_label():
     try:
         total_time_hrs = int(total_time_hrs_entry.get())
     except ValueError:
@@ -78,12 +78,21 @@ def update_result_label():
 
     time_per_day_hrs, time_per_day_mins = get_time_per_day(total_time_hrs, total_time_mins, total_time_sec, target_time)
     total_time_result_label.configure(text=f"Total time per day: {time_per_day_hrs}hr {time_per_day_mins}min")
-#    percent_to_target_label.configure(text=f"Percent to target: {percent_to_target}%")
 
-#def debug_print():
-#    print(get_total_time())
+def update_percent_to_target_label():
+    try:
+        target_time = int(target_time_entry.get())
+    except ValueError:
+        print(value_error)
 
-button = ctk.CTkButton(app, corner_radius=10, text="Calculate", command=update_result_label)
+    percent_to_target = get_percent_to_target(get_total_time(), target_time)
+    percent_to_target_label.configure(text=f"Percent to target: {percent_to_target}%")
+
+def calculate():
+    update_total_time_result_label()
+    update_percent_to_target_label()
+
+button = ctk.CTkButton(app, corner_radius=10, text="Calculate", command=calculate)
 button.pack(padx=10, pady=10)
 
 app.mainloop()
